@@ -1,0 +1,72 @@
+{
+  "test_cases": [
+    {
+      "name": "Get Single User",
+      "method": "GET",
+      "endpoint": "/api/users/2",
+      "expected_status": 200,
+      "assertions": [
+        {
+          "path": "data.id",
+          "expected": 2
+        }
+      ]
+    },
+
+    {
+      "name": "Get User Not Found",
+      "method": "GET",
+      "endpoint": "/api/users/23",
+      "expected_status": 404
+    },
+
+    {
+      "name": "Create User",
+      "method": "POST",
+      "endpoint": "/api/users",
+      "payload": {
+        "name": "Shivani",
+        "job": "SDET"
+      },
+      "expected_status": 201,
+      "assertions": [
+        {
+          "path": "name",
+          "expected": "Shivani"
+        },
+        {
+          "path": "job",
+          "expected": "SDET"
+        }
+      ]
+    },
+
+    {
+      "name": "Update User",
+      "method": "PUT",
+      "endpoint": "/api/users/2",
+      "payload": {
+        "name": "Shivani Updated",
+        "job": "Senior SDET"
+      },
+      "expected_status": 200,
+      "assertions": [
+        {
+          "path": "name",
+          "expected": "Shivani Updated"
+        }
+      ]
+    },
+
+    {
+      "name": "Successful Login",
+      "method": "POST",
+      "endpoint": "/api/login",
+      "payload": {
+        "email": "eve.holt@reqres.in",
+        "password": "cityslicka"
+      },
+      "expected_status": 200
+    }
+  ]
+}
