@@ -106,3 +106,16 @@
 2026-06-25 17:39:28,002 - INFO - POST https://reqres.in/api/login
 2026-06-25 17:39:28,002 - INFO - Payload: {'email': 'eve.holt@reqres.in', 'password': 'cityslicka'}
 2026-06-25 17:39:28,614 - INFO - Status Code: 200
+2026-06-25 17:42:03,197 - INFO - GET https://reqres.in/api/users/2
+2026-06-25 17:42:03,647 - INFO - Status Code: 200
+2026-06-25 17:42:03,651 - INFO - GET https://reqres.in/api/users/23
+2026-06-25 17:42:04,304 - INFO - Status Code: 404
+2026-06-25 17:42:04,308 - INFO - POST https://reqres.in/api/users
+2026-06-25 17:42:04,309 - INFO - Payload: {'name': 'Shivani', 'job': 'SDET'}
+2026-06-25 17:42:04,757 - INFO - Status Code: 201
+2026-06-25 17:42:04,765 - INFO - PUT https://reqres.in/api/users/2
+2026-06-25 17:42:04,765 - INFO - Payload: {'name': 'Shivani Updated', 'job': 'Senior SDET'}
+2026-06-25 17:42:05,314 - INFO - Status Code: 200
+2026-06-25 17:42:05,318 - INFO - POST https://reqres.in/api/login
+2026-06-25 17:42:05,318 - INFO - Payload: {'email': 'eve.holt@reqres.in', 'password': 'cityslicka'}
+2026-06-25 17:42:05,725 - INFO - Status Code: 200

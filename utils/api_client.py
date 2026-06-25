@@ -3,20 +3,27 @@ import os
 from utils.logger import get_logger
 from dotenv import load_dotenv
 
-
+load_dotenv()
 logger = get_logger()
 
-load_dotenv()  # loads .env locally
 
 class APIClient:
 
     BASE_URL = "https://reqres.in"
 
-    API_KEY = os.getenv("API_KEY")
+    @staticmethod
+    def get_headers():
 
-    HEADERS = {
-        "x-api-key": API_KEY
-    }
+        api_key = os.getenv("API_KEY")
+
+        headers = {
+            "Content-Type": "application/json"
+        }
+
+        if api_key:
+            headers["x-api-key"] = api_key
+
+        return headers
 
     @staticmethod
     def send_request(method, endpoint, payload=None):
@@ -32,7 +39,7 @@ class APIClient:
             method=method,
             url=url,
             json=payload,
-            headers=APIClient.HEADERS
+            headers=APIClient.get_headers()
         )
 
         logger.info(f"Status Code: {response.status_code}")
