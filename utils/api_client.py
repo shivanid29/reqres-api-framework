@@ -13,21 +13,22 @@ class APIClient:
 
     @staticmethod
     def get_headers():
-
         api_key = os.getenv("API_KEY")
 
         headers = {
             "Content-Type": "application/json"
         }
 
-        if api_key:
-            headers["x-api-key"] = api_key
+        # Validate that api_key is populated, not None, and not an empty string
+        if api_key and str(api_key).strip() and str(api_key) != "None":
+            headers["x-api-key"] = str(api_key).strip()
+        else:
+            logger.warning("API_KEY environment variable is missing or empty!")
 
         return headers
 
     @staticmethod
     def send_request(method, endpoint, payload=None):
-
         url = f"{APIClient.BASE_URL}{endpoint}"
 
         logger.info(f"{method} {url}")
