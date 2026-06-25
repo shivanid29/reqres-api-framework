@@ -1,17 +1,21 @@
 import requests
-
+import os
 from utils.logger import get_logger
+from dotenv import load_dotenv
 
 
 logger = get_logger()
 
+load_dotenv()  # loads .env locally
 
 class APIClient:
 
     BASE_URL = "https://reqres.in"
 
+    API_KEY = os.getenv("API_KEY")
+
     HEADERS = {
-        "x-api-key": "pub_f9c9fbd8014447c836a03c42a7e91fbbfe00199826b02be15107cf4b865604fc"
+        "x-api-key": API_KEY
     }
 
     @staticmethod
