@@ -1,0 +1,34 @@
+name: API Automation Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  run-tests:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      # Inject secrets into environment
+      - name: Set environment variables
+        run: |
+          echo "EMAIL=${{ secrets.EMAIL }}" >> $GITHUB_ENV
+          echo "PASSWORD=${{ secrets.PASSWORD }}" >> $GITHUB_ENV
+
+      - name: Run tests
+        run: |
+          pytest

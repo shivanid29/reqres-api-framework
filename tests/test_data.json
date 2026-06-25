@@ -63,8 +63,8 @@
       "method": "POST",
       "endpoint": "/api/login",
       "payload": {
-        "email": "eve.holt@reqres.in",
-        "password": "cityslicka"
+        "email": "${EMAIL}",
+        "password": "${PASSWORD}"
       },
       "expected_status": 200
     }
